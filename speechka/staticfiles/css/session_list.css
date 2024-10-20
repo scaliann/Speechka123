@@ -1,0 +1,49 @@
+/* Основной контейнер для списка сессий */
+.sessions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Делаем, чтобы сессии были вертикально по центру */
+    padding: 20px;
+}
+
+/* Бокс для сессий */
+.sessions-box {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 25px;  /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* Контейнер для кнопок сессий */
+.sessions-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;  /* Отступы между кнопками */
+}
+
+/* Кнопки для каждой сессии */
+.session-button {
+    display: inline-block;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 25px;  /* Закругляем кнопки */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 120px;  /* Фиксированная ширина кнопки */
+    text-align: center;
+}
+
+/* Изменение цвета кнопки при наведении */
+.session-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}

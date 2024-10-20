@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+
+{% block content %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/registration.css'%}" media="screen">
+</head>
+<body>
+
+<div class="auth-container">
+      <form method="POST" class="form-group">
+        {% csrf_token %}
+
+        <!-- Поле для имени -->
+        <div class="mb-3">
+            <label for="{{ form.first_name.id_for_label }}" class="form-label">{{ form.first_name.label }}</label>
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+        </div>
+
+        <!-- Поле для фамилии -->
+        <div class="mb-3">
+            <label for="{{ form.last_name.id_for_label }}" class="form-label">{{ form.last_name.label }}</label>
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+        </div>
+
+        <div class="mb-3">
+            <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+
+        <!-- Поле для email -->
+        <div class="mb-3">
+            <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+
+        <!-- Поле для пароля -->
+        <div class="mb-3">
+            <label for="{{ form.password1.id_for_label }}" class="form-label">{{ form.password1.label }}</label>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+        </div>
+
+        <!-- Поле для подтверждения пароля -->
+        <div class="mb-3">
+            <label for="{{ form.password2.id_for_label }}" class="form-label">{{ form.password2.label }}</label>
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+        </div>
+        <button type="submit" class="btn btn-dark btn-block">Зарегистрироваться</button>
+    </form>
+
+</div>
+
+
+
+</body>
+</html>
+{% endblock %}

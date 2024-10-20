@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}" media="screen">
+</head>
+<body>
+
+<div class="container profile-page">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-info card">
+                <div class="profile-header">
+                    <div class="avatar-button">
+
+                        <button class="edit-profile-btn">Изменить профиль</button>
+                    </div>
+                    <div class="profile-details">
+                        <p>Имя: {{ user.first_name }}</p>
+                        <p>Фамилия: {{ user.last_name }}</p>
+                        <p>Электронная почта: {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="sessions-list">
+    <h3>Сессии</h3>
+    <ul>
+        <a href="{% url 'session_list' %}">
+                    <button>Посмотреть сессии</button>
+                </a>
+    </ul>
+</div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

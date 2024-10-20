@@ -1,0 +1,69 @@
+/* Стиль для контейнера сессии */
+.session-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Стиль заголовка */
+.session-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Список аудиофайлов */
+.audio-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Карточка аудиофайла */
+.audio-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.audio-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Детали аудиофайла */
+.audio-details {
+    flex: 1;
+    text-align: left;
+}
+
+/* Название аудиофайла */
+.audio-title {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Аудиоплеер */
+audio {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+}
+
+/* Если нет аудиофайлов */
+.no-audio {
+    font-size: 16px;
+    color: #777;
+}

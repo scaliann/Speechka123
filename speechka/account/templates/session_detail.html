@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сессии</title>
+    <link rel="stylesheet" href="{% static 'css/session_detail.css'%}" media="screen">
+</head>
+<div class="session-container">
+    <h2>Аудиофайлы сессии № {{ session }}</h2>
+
+    <div class="audio-file-list">
+        {% for audio in audio_files %}
+            <div class="audio-card">
+                <div class="audio-details">
+                    <h4 class="audio-title">{{ audio.audio_name }}</h4>
+                    <audio controls>
+                        <source src="{% url 'play_audio' audio.mongo_file_id %}" type="audio/wav">
+                        Ваш браузер не поддерживает элемент <code>audio</code>.
+                    </audio>
+                </div>
+            </div>
+        {% empty %}
+            <p class="no-audio">Нет записанных аудиофайлов в этой сессии.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

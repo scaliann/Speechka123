@@ -1,0 +1,38 @@
+/* Основной контейнер страницы */
+.profile-page {
+    display: flex;
+    justify-content: space-between;  /* Левый контейнер слева, правый справа */
+    align-items: center;             /* Центрируем по вертикали */
+    height: 100vh;                   /* Задаем высоту экрана */
+    padding: 20px;
+}
+
+/* Контейнеры профиля и сессий */
+.profile-info, .sessions-list {
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 300px;  /* Уменьшена ширина для каждого контейнера */
+}
+
+/* Отступы между контейнерами */
+.profile-info {
+    margin-right: 50px;
+}
+
+.sessions-list {
+    margin-left: 50px;
+}
+
+/* Адаптивный дизайн для узких экранов */
+@media (max-width: 768px) {
+    .profile-page {
+        flex-direction: column;
+    }
+
+    .profile-info, .sessions-list {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сессии</title>
+    <link rel="stylesheet" href="{% static 'css/session_list.css'%}" media="screen">
+</head>
+<div class="sessions-container">
+    <div class="sessions-box">
+        <div class="sessions-list">
+            {% for session in sessions %}
+                <a href="{% url 'session_detail' session %}" class="session-button">
+                    Сессия {{ session }}
+                </a>
+            {% empty %}
+                <p>Нет доступных сессий</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

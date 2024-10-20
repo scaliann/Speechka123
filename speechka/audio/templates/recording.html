@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись аудио</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/recording.css'%}">
+    <style>
+        /* Центрирование всего блока */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Бокс для записи */
+        .record-box {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        /* Отображение текста */
+        .word-text {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Стили кнопок */
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 150px;
+        }
+
+        .session-info {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Центрирование текста "Произнесите слово" */
+        .instruction {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="record-box">
+            <div class="instruction">Произнесите слово</div>
+            <p id="wordDisplay" class="word-text">{{ word }}</p>
+
+            <div class="btn-group">
+                <button id="start-record-btn" class="btn btn-primary">Начать запись</button>
+                <button id="stop-record-btn" class="btn btn-secondary" disabled>Остановить запись</button>
+            </div>
+
+            <p class="session-info">Текущая сессия: {{ session }}</p>
+        </div>
+    </div>
+
+    <script src="{% static 'js/recording.js' %}"></script>
+<script>
+    const words = {{ words|safe }};  // Передаем список слов из Django в JavaScript
+    console.log('Words:', words);
+</script>
+
+</body>
+</html>
+
+{% endblock %}
